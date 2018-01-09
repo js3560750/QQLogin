@@ -7,6 +7,7 @@ package com.jinsong.core.qq.api;
 
 public class QQUserInfo {
 
+	
 	/**
 	 * 	返回码
 	 */

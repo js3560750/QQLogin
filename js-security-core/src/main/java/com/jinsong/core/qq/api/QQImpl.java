@@ -18,6 +18,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class QQImpl extends AbstractOAuth2ApiBinding implements QQ {
 
+	
 	//下面这些参数都要参照QQ官方的API文档来开发
 	//http://wiki.connect.qq.com/api列表
 	private static final String URL_GET_OPENID="https://graph.qq.com/oauth2.0/me?access_token=%s";
@@ -42,13 +43,18 @@ public class QQImpl extends AbstractOAuth2ApiBinding implements QQ {
 	}
 	
 	@Override
-	public QQUserInfo getQQUserInfo() throws Exception {
+	public QQUserInfo getQQUserInfo()  {
 		// TODO Auto-generated method stub
 		String url = String.format(URL_GET_USERINFO, appId,openId);
 		String result = getRestTemplate().getForObject(url, String.class);
 		System.out.println(result);
 		//objectMapper可以帮我们把JSON格式的String转换成我们想要的对象
-		return objectMapper.readValue(result, QQUserInfo.class);
+		try {
+			return objectMapper.readValue(result, QQUserInfo.class);
+		} catch (Exception e) {
+			throw new RuntimeException("获取用户信息失败",e);
+		} 
+		
 	}
 
 }

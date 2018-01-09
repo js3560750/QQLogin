@@ -1,7 +1,6 @@
 package com.jinsong.core.qq.connect;
 
 import org.springframework.social.oauth2.AbstractOAuth2ServiceProvider;
-import org.springframework.social.oauth2.OAuth2Operations;
 import org.springframework.social.oauth2.OAuth2Template;
 
 import com.jinsong.core.qq.api.QQ;
@@ -13,6 +12,7 @@ import com.jinsong.core.qq.api.QQImpl;
  * 
  */
 public class QQServiceProvider extends AbstractOAuth2ServiceProvider<QQ> {
+	
 	
 	private String appId;
 	

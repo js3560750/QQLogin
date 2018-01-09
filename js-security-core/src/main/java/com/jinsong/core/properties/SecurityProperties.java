@@ -15,7 +15,16 @@ public class SecurityProperties {
 	
 	private SmsCodeProperties sms =new SmsCodeProperties();
 	
-	
+	//第三方登录
+	private SocialProperties social = new SocialProperties();
+
+	public SocialProperties getSocial() {
+		return social;
+	}
+
+	public void setSocial(SocialProperties social) {
+		this.social = social;
+	}
 
 	public SmsCodeProperties getSms() {
 		return sms;

@@ -15,6 +15,8 @@ import org.springframework.security.web.authentication.AuthenticationSuccessHand
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.security.web.authentication.rememberme.JdbcTokenRepositoryImpl;
 import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
+import org.springframework.social.security.SocialAuthenticationFilter;
+import org.springframework.social.security.SpringSocialConfigurer;
 
 import com.jinsong.core.properties.SecurityProperties;
 import com.jinsong.core.smsLogin.SmsCodeAuthenticationConfig;
@@ -59,9 +61,16 @@ public class BrowserSecurityConfig extends WebSecurityConfigurerAdapter{
 	@Autowired
 	private SmsCodeAuthenticationConfig smsCodeAuthenticationConfig;
 	
+	@Autowired
+	private SpringSocialConfigurer jinsongSocialSecurityConfig;//这个在com.jinsong.core.qq.config.QQConfig中
+	
+	
+	
 	//配置
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
+		
+		
 		
 		//图形验证码过滤器
 		ValidateCodeFilter validateCodeFilter = new ValidateCodeFilter();
@@ -99,7 +108,9 @@ public class BrowserSecurityConfig extends WebSecurityConfigurerAdapter{
 			.authenticated()
 			.and()
 			.csrf().disable()	//关闭CSRF防护，因为没有做配置，不关闭的话登录提交会报错
-			.apply(smsCodeAuthenticationConfig);	//将smsCodeAuthenticationConfig类里写的配置加到浏览器的配置里
+			.apply(smsCodeAuthenticationConfig)	//将smsCodeAuthenticationConfig类里写的配置加到浏览器的配置里
+			.and()
+			.apply(jinsongSocialSecurityConfig);//第三方登录的配置
 		
 		//默认的弹窗登录
 		/*
