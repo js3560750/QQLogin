@@ -1,0 +1,106 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <artifactId>js-security-core</artifactId>
+  <packaging>jar</packaging>
+
+  <name>js-security-core</name>
+  <url>http://maven.apache.org</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+	
+  <!-- 显示父类模块，子模块继承父类模块  -->
+  <parent>
+  	<groupId>com.js.security</groupId>
+  	<artifactId>js-security</artifactId>
+  	<version>0.0.1-SNAPSHOT</version>
+  	<relativePath>../js-security</relativePath>
+  </parent>
+  
+  <!-- 因为父类的依赖管理io.spring.platform和cloud ，所以下面的依赖都不用写版本号，会帮我们自动控制版本 -->
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <scope>test</scope>
+    </dependency>
+    
+    <!-- 引入Spring Security和Spring Security Oauth的依赖 -->
+    <dependency>
+    	<groupId>org.springframework.cloud</groupId>
+    	<artifactId>spring-cloud-starter-oauth2</artifactId>
+    </dependency>
+    
+    <!-- Redis -->
+    <dependency>
+    	<groupId>org.springframework.boot</groupId>
+    	<artifactId>spring-boot-starter-data-redis</artifactId>
+    </dependency>
+    
+   	<!-- JDBC -->
+   	<dependency>
+   		<groupId>org.springframework.boot</groupId>
+   		<artifactId>spring-boot-starter-jdbc</artifactId>
+   	</dependency>
+   	
+   	<!-- mysql -->
+   	<dependency>
+   		<groupId>mysql</groupId>
+   		<artifactId>mysql-connector-java</artifactId>
+   	</dependency>
+   	
+   	<!-- Spring Social 实现第三方登录，比如QQ、微信登录-->
+   	<dependency>
+			<groupId>org.springframework.social</groupId>
+			<artifactId>spring-social-config</artifactId>
+	</dependency>
+	<dependency>
+			<groupId>org.springframework.social</groupId>
+			<artifactId>spring-social-core</artifactId>
+	</dependency>
+	<dependency>
+			<groupId>org.springframework.social</groupId>
+			<artifactId>spring-social-security</artifactId>
+	</dependency>
+	<dependency>
+			<groupId>org.springframework.social</groupId>
+			<artifactId>spring-social-web</artifactId>
+	</dependency>
+	
+	<!-- Java工具包 -->
+	<dependency>
+			<groupId>commons-lang</groupId>	<!-- 字符串操作 -->
+			<artifactId>commons-lang</artifactId>
+	</dependency>
+	<dependency>
+			<groupId>commons-collections</groupId>	<!-- 集合操作 -->
+			<artifactId>commons-collections</artifactId>
+	</dependency>
+	<dependency>
+			<groupId>commons-beanutils</groupId>	<!-- 反射操作 -->
+			<artifactId>commons-beanutils</artifactId>
+	</dependency>
+  </dependencies>
+  
+</project>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

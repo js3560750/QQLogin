@@ -1,0 +1,41 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <artifactId>js-security-browser</artifactId>
+  <packaging>jar</packaging>
+
+  <name>js-security-browser</name>
+  <url>http://maven.apache.org</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  <dependencies>
+  	<!-- 引入js-security-core的所有包 -->
+  	<dependency>
+  		<groupId>com.js.security</groupId>
+  		<artifactId>js-security-core</artifactId>
+  		<version>0.0.1-SNAPSHOT</version>
+  	</dependency>
+  	
+  	<!-- Spring Session 帮我做集群环境下的Session管理 -->
+  	<dependency>
+  		<groupId>org.springframework.session</groupId>
+  		<artifactId>spring-session</artifactId>
+  	</dependency>
+  	
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+  <parent>
+  	<groupId>com.js.security</groupId>
+  	<artifactId>js-security</artifactId>
+  	<version>0.0.1-SNAPSHOT</version>
+  	<relativePath>../js-security</relativePath>
+  </parent>
+</project>

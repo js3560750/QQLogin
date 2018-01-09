@@ -1,0 +1,5 @@
+{
+	"name":jinsong,
+	"age":27,
+	"school":UESTC
+}
